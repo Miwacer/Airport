@@ -6,19 +6,31 @@
   <component name="ChangeListManager">
     <list default="true" id="14a5eec5-f72f-4208-ba0e-a973de1ee6b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airport/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airport/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airport/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airport/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airport_service/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport_service/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airport_service/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport_service/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/apps.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2yu5MnuRpwt1jyzwB4VvbPGKz7g" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -27,8 +39,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Django Server.Airport.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "develop",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -80,7 +94,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1750671571937</updated>
-      <workItem from="1750671573033" duration="8573000" />
+      <workItem from="1750671573033" duration="10456000" />
+      <workItem from="1750748325743" duration="11990000" />
     </task>
     <servers />
   </component>
