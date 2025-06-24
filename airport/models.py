@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
@@ -27,10 +28,10 @@ class Crew(models.Model):
 
 class Route(models.Model):
     source = models.ForeignKey(
-        "Airport", on_delete=models.CASCADE, related_name="routes"
+        "Airport", on_delete=models.CASCADE, related_name="departures"
     )
     destination = models.ForeignKey(
-        "Airport", on_delete=models.CASCADE, related_name="routes"
+        "Airport", on_delete=models.CASCADE, related_name="arrivals"
     )
     distance = models.IntegerField()
 
@@ -55,8 +56,4 @@ class Ticket(models.Model):
 
 class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey("User", on_delete=models.CASCADE)
-
-
-class User(AbstractUser):
-    pass
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="orders")
