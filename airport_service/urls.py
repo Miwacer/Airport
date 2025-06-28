@@ -19,5 +19,5 @@ Including another URLconf
 from django.urls import path, include
 
 urlpatterns = [
-    path("api/airport", include("airport.urls", namespace="airport")),
+    path("api/airport/", include("airport.urls", namespace="airport")),
 ]
