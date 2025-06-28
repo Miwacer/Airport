@@ -1,10 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 
-from airport.views import (
-    CrewViewSet,
-    FlightViewSet
-)
+from airport.views import CrewViewSet, FlightViewSet
 
 router = routers.DefaultRouter()
 router.register("crews", CrewViewSet)
