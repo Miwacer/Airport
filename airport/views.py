@@ -1,11 +1,20 @@
 from django.shortcuts import render
 from rest_framework import viewsets, mixins
 
-from airport.models import Crew, Flight, Route
+from airport.models import Crew, Flight, Route, Airport
 from airport.serializers import (
     CrewSerializer,
-    FlightSerializer, RouteSerializer,
+    FlightSerializer,
+    RouteSerializer,
+    AirportSerializer,
 )
+
+
+class AirportViewSet(
+    mixins.RetrieveModelMixin, mixins.ListModelMixin,viewsets.GenericViewSet
+):
+    queryset = Airport.objects.all()
+    serializer_class = AirportSerializer
 
 
 class CrewViewSet(
