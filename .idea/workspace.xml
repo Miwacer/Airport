@@ -7,9 +7,8 @@
     <list default="true" id="14a5eec5-f72f-4208-ba0e-a973de1ee6b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/airport/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airport/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airport_service/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport_service/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airport/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airport_service/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport_service/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +96,7 @@
       <workItem from="1750786551213" duration="630000" />
       <workItem from="1751027759416" duration="607000" />
       <workItem from="1751029937213" duration="2834000" />
-      <workItem from="1751096243538" duration="4381000" />
+      <workItem from="1751096243538" duration="6296000" />
     </task>
     <servers />
   </component>
