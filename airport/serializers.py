@@ -21,14 +21,20 @@ class AirplaneTypeSerializer(serializers.ModelSerializer):
         fields = ("id", "name")
 
 
+class CrewListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Crew
+        fields = ("id" ,"first_name", "last_name",)
+
+
 class CrewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Crew
-        fields = ("full_name", )
+        fields = ("id", "full_name", )
 
 
 class FlightSerializer(serializers.ModelSerializer):
-    crews = CrewSerializer(many=True)
+    crews = serializers.SlugRelatedField(many=True, read_only=True, slug_field="full_name")
 
     class Meta:
         model = Flight

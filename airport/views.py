@@ -3,11 +3,10 @@ from rest_framework import viewsets, mixins
 
 from airport.models import Crew, Flight, Route, Airport, Airplane, AirplaneType
 from airport.serializers import (
-    CrewSerializer,
     FlightSerializer,
     RouteSerializer,
     AirportSerializer,
-    AirplaneSerializer, AirplaneTypeSerializer,
+    AirplaneSerializer, AirplaneTypeSerializer, CrewListSerializer
 )
 
 
@@ -22,7 +21,7 @@ class CrewViewSet(
     mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet
 ):
     queryset = Crew.objects.all()
-    serializer_class = CrewSerializer
+    serializer_class = CrewListSerializer
 
 
 class FlightViewSet(
