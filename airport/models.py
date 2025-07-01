@@ -39,6 +39,10 @@ class Route(models.Model):
     )
     distance = models.IntegerField()
 
+    @property
+    def full_route(self):
+        return f"{self.source.name} - {self.destination.name}"
+
 
 class Flight(models.Model):
     route = models.ForeignKey("Route", on_delete=models.CASCADE, related_name="flights")
