@@ -1,6 +1,15 @@
-from rest_framework import viewsets, mixins
+from django.contrib.auth import get_user_model
+from rest_framework import viewsets, mixins, generics
 
-from airport.models import Crew, Flight, Route, Airport, Airplane, AirplaneType
+from airport.models import (
+    Crew,
+    Flight,
+    Route,
+    Airport,
+    Airplane,
+    AirplaneType
+)
+
 from airport.serializers import (
     FlightListSerializer,
     RouteSerializer,
@@ -9,12 +18,12 @@ from airport.serializers import (
     CrewListSerializer,
     FlightDetailSerializer,
     AirplaneTypeListSerializer,
-    AirplaneListSerializer
+    AirplaneListSerializer,
 )
 
 
 class AirportViewSet(
-    mixins.RetrieveModelMixin, mixins.ListModelMixin,viewsets.GenericViewSet
+    mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet
 ):
     queryset = Airport.objects.all()
     serializer_class = AirportSerializer
@@ -41,15 +50,14 @@ class FlightViewSet(
 
 
 class RouteViewSet(
-    mixins.RetrieveModelMixin, mixins.ListModelMixin ,viewsets.GenericViewSet
+    mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet
 ):
     queryset = Route.objects.all()
     serializer_class = RouteSerializer
 
+
 class AirplaneViewSet(
-    mixins.RetrieveModelMixin,
-    mixins.ListModelMixin,
-    viewsets.GenericViewSet
+    mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet
 ):
     queryset = Airplane.objects.all()
 
@@ -62,9 +70,7 @@ class AirplaneViewSet(
 
 
 class AirplaneTypeViewSet(
-    mixins.RetrieveModelMixin,
-    mixins.ListModelMixin,
-    viewsets.GenericViewSet
+    mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet
 ):
     queryset = AirplaneType.objects.all()
     serializer_class = AirplaneTypeListSerializer

@@ -1,6 +1,13 @@
 from rest_framework import serializers
 
-from airport.models import Crew, Flight, Route, Airport, Airplane, AirplaneType
+from airport.models import (
+    Crew,
+    Flight,
+    Route,
+    Airport,
+    Airplane,
+    AirplaneType,
+)
 
 
 class AirportSerializer(serializers.ModelSerializer):
@@ -18,7 +25,7 @@ class AirplaneTypeListSerializer(serializers.ModelSerializer):
 class AirplaneTypeNameSerializer(AirplaneTypeListSerializer):
     class Meta:
         model = AirplaneType
-        fields = ("name", )
+        fields = ("name",)
 
 
 class AirplaneListSerializer(serializers.ModelSerializer):
@@ -40,20 +47,31 @@ class AirplaneDetailSerializer(serializers.ModelSerializer):
 class CrewListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Crew
-        fields = ("id" ,"first_name", "last_name",)
+        fields = (
+            "id",
+            "first_name",
+            "last_name",
+        )
 
 
 class CrewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Crew
-        fields = ("id", "full_name", )
+        fields = (
+            "id",
+            "full_name",
+        )
 
 
 class RouteSerializer(serializers.ModelSerializer):
     source = serializers.CharField(source="source.name", read_only=True)
-    source_closest_big_city = serializers.CharField(source="source.closest_big_city", read_only=True)
+    source_closest_big_city = serializers.CharField(
+        source="source.closest_big_city", read_only=True
+    )
     destination = serializers.CharField(source="destination.name", read_only=True)
-    destination_closest_big_city = serializers.CharField(source="destination.closest_big_city", read_only=True)
+    destination_closest_big_city = serializers.CharField(
+        source="destination.closest_big_city", read_only=True
+    )
 
     class Meta:
         model = Route
@@ -63,13 +81,15 @@ class RouteSerializer(serializers.ModelSerializer):
             "source_closest_big_city",
             "destination",
             "destination_closest_big_city",
-            "distance"
+            "distance",
         )
 
 
 class FlightListSerializer(serializers.ModelSerializer):
     airplane = serializers.CharField(source="airplane.name", read_only=True)
-    crews = serializers.SlugRelatedField(many=True, read_only=True, slug_field="full_name")
+    crews = serializers.SlugRelatedField(
+        many=True, read_only=True, slug_field="full_name"
+    )
     route = serializers.SlugRelatedField(read_only=True, slug_field="full_route")
 
     class Meta:

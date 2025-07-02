@@ -8,12 +8,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/airport/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/airport/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airport/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/airport/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airport_service/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport_service/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -41,6 +46,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/django/bus_ticket_system&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -98,7 +104,12 @@
       <workItem from="1751029937213" duration="2834000" />
       <workItem from="1751096243538" duration="13784000" />
       <workItem from="1751181896702" duration="3965000" />
-      <workItem from="1751354106368" duration="1176000" />
+      <workItem from="1751354106368" duration="5881000" />
+      <workItem from="1751381968010" duration="5185000" />
+      <workItem from="1751393494876" duration="43000" />
+      <workItem from="1751398348134" duration="5128000" />
+      <workItem from="1751462300133" duration="755000" />
+      <workItem from="1751463105592" duration="2833000" />
     </task>
     <servers />
   </component>
