@@ -6,7 +6,7 @@ from airport.models import (
     Route,
     Airport,
     Airplane,
-    AirplaneType,
+    AirplaneType, Order, Ticket,
 )
 
 
@@ -105,3 +105,17 @@ class FlightDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Flight
         fields = ("id", "airplane", "route", "departure_time", "arrival_time", "crews")
+
+
+class TicketSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Ticket
+        fields = ("id", "row", "seat", "flight", "order")
+
+
+class OrderSerializer(serializers.ModelSerializer):
+    tickets = TicketSerializers(many=True, read_only=True)
+
+    class Meta:
+        model = Order
+        fields = ("id", "user", "created_at", "tickets")

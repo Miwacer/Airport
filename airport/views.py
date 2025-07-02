@@ -1,5 +1,4 @@
-from django.contrib.auth import get_user_model
-from rest_framework import viewsets, mixins, generics
+from rest_framework import viewsets, mixins
 
 from airport.models import (
     Crew,
@@ -7,7 +6,7 @@ from airport.models import (
     Route,
     Airport,
     Airplane,
-    AirplaneType
+    AirplaneType, Order
 )
 
 from airport.serializers import (
@@ -19,6 +18,7 @@ from airport.serializers import (
     FlightDetailSerializer,
     AirplaneTypeListSerializer,
     AirplaneListSerializer,
+    OrderSerializer
 )
 
 
@@ -74,3 +74,18 @@ class AirplaneTypeViewSet(
 ):
     queryset = AirplaneType.objects.all()
     serializer_class = AirplaneTypeListSerializer
+
+
+class OrderViewSet(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    viewsets.GenericViewSet
+):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+    def get_queryset(self):
+        return self.queryset.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
