@@ -1,3 +1,4 @@
+from django.db import transaction
 from rest_framework import serializers
 
 from airport.models import (
@@ -107,15 +108,32 @@ class FlightDetailSerializer(serializers.ModelSerializer):
         fields = ("id", "airplane", "route", "departure_time", "arrival_time", "crews")
 
 
-class TicketSerializers(serializers.ModelSerializer):
+class TicketSerializer(serializers.ModelSerializer):
+    def validate(self, attrs):
+        data = super(TicketSerializer, self).validate(attrs)
+        Ticket.validate_seat(
+            attrs["seat"],
+            attrs["flight"].airplane.seats_in_row,
+            serializers.ValidationError
+        )
+        return data
+
     class Meta:
         model = Ticket
-        fields = ("id", "row", "seat", "flight", "order")
+        fields = ("id", "row", "seat", "flight")
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    tickets = TicketSerializers(many=True, read_only=True)
+    tickets = TicketSerializer(many=True, read_only=False, allow_null=True)
 
     class Meta:
         model = Order
-        fields = ("id", "user", "created_at", "tickets")
+        fields = ("id", "tickets", "created_at")
+
+    def create(self, validated_data):
+        with transaction.atomic():
+            tickets_data = validated_data.pop("tickets")
+            order = Order.objects.create(**validated_data)
+            for ticket_data in tickets_data:
+                Ticket.objects.create(order=order, **ticket_data)
+            return order
