@@ -1,24 +1,17 @@
 from rest_framework import viewsets, mixins
 
-from airport.models import (
-    Crew,
-    Flight,
-    Route,
-    Airport,
-    Airplane,
-    AirplaneType, Order
-)
+from airport.models import Crew, Flight, Route, Airport, Airplane, AirplaneType, Order
 
 from airport.serializers import (
     FlightListSerializer,
     RouteSerializer,
     AirportSerializer,
     AirplaneDetailSerializer,
-    CrewListSerializer,
+    CrewSerializer,
     FlightDetailSerializer,
-    AirplaneTypeListSerializer,
+    AirplaneTypeSerializer,
     AirplaneListSerializer,
-    OrderSerializer
+    OrderSerializer,
 )
 
 
@@ -33,7 +26,7 @@ class CrewViewSet(
     mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet
 ):
     queryset = Crew.objects.all()
-    serializer_class = CrewListSerializer
+    serializer_class = CrewSerializer
 
 
 class FlightViewSet(
@@ -73,13 +66,11 @@ class AirplaneTypeViewSet(
     mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet
 ):
     queryset = AirplaneType.objects.all()
-    serializer_class = AirplaneTypeListSerializer
+    serializer_class = AirplaneTypeSerializer
 
 
 class OrderViewSet(
-    mixins.ListModelMixin,
-    mixins.CreateModelMixin,
-    viewsets.GenericViewSet
+    mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet
 ):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer

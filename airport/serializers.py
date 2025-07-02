@@ -7,7 +7,9 @@ from airport.models import (
     Route,
     Airport,
     Airplane,
-    AirplaneType, Order, Ticket,
+    AirplaneType,
+    Order,
+    Ticket,
 )
 
 
@@ -17,13 +19,13 @@ class AirportSerializer(serializers.ModelSerializer):
         fields = ("id", "name", "closest_big_city")
 
 
-class AirplaneTypeListSerializer(serializers.ModelSerializer):
+class AirplaneTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = AirplaneType
         fields = ("id", "name")
 
 
-class AirplaneTypeNameSerializer(AirplaneTypeListSerializer):
+class AirplaneTypeNameSerializer(AirplaneTypeSerializer):
     class Meta:
         model = AirplaneType
         fields = ("name",)
@@ -38,21 +40,11 @@ class AirplaneListSerializer(serializers.ModelSerializer):
 
 
 class AirplaneDetailSerializer(serializers.ModelSerializer):
-    airplane_type = AirplaneTypeListSerializer(read_only=True)
+    airplane_type = AirplaneTypeSerializer(read_only=True)
 
     class Meta:
         model = Airplane
         fields = ("id", "name", "rows", "seats_in_row", "airplane_type")
-
-
-class CrewListSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Crew
-        fields = (
-            "id",
-            "first_name",
-            "last_name",
-        )
 
 
 class CrewSerializer(serializers.ModelSerializer):
@@ -60,7 +52,8 @@ class CrewSerializer(serializers.ModelSerializer):
         model = Crew
         fields = (
             "id",
-            "full_name",
+            "first_name",
+            "last_name",
         )
 
 
@@ -100,7 +93,7 @@ class FlightListSerializer(serializers.ModelSerializer):
 
 class FlightDetailSerializer(serializers.ModelSerializer):
     route = RouteSerializer(read_only=True)
-    crews = CrewListSerializer(many=True, read_only=True)
+    crews = CrewSerializer(many=True, read_only=True)
     airplane = AirplaneDetailSerializer(read_only=True)
 
     class Meta:
@@ -114,7 +107,7 @@ class TicketSerializer(serializers.ModelSerializer):
         Ticket.validate_seat(
             attrs["seat"],
             attrs["flight"].airplane.seats_in_row,
-            serializers.ValidationError
+            serializers.ValidationError,
         )
         return data
 

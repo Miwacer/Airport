@@ -75,13 +75,13 @@ class Ticket(models.Model):
     @staticmethod
     def validate_seat(seat: int, seats_in_row: int, errors_raise):
         if not (1 <= seat <= seats_in_row):
-            raise errors_raise({
-                "seat": f"seat must be in the range [1, {seats_in_row}]"
-            })
+            raise errors_raise(
+                {"seat": f"seat must be in the range [1, {seats_in_row}]"}
+            )
 
     def clean(self):
         Ticket.validate_seat(
             seat=self.seat,
             seats_in_row=self.flight.airplane.seats_in_row,
-            errors_raise=ValidationError
+            errors_raise=ValidationError,
         )
