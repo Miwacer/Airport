@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from .filters import filter_by_date
 
 from django.db.models import Q

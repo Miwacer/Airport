@@ -16,6 +16,9 @@ class Airplane(models.Model):
         "AirplaneType", on_delete=models.CASCADE, related_name="airplane"
     )
 
+    def total_seats(self):
+        return self.rows * self.seats_in_row
+
 
 class AirplaneType(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -52,6 +55,12 @@ class Flight(models.Model):
     departure_time = models.DateTimeField()
     arrival_time = models.DateTimeField()
     crews = models.ManyToManyField("Crew", related_name="flights")
+
+    @property
+    def tickets_available(self):
+        total = self.airplane.total_seats()
+        sold = self.tickets.count()
+        return total - sold
 
 
 class Order(models.Model):
