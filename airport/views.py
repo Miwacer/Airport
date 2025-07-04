@@ -37,7 +37,9 @@ class CrewViewSet(
 class FlightViewSet(
     mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet
 ):
-    queryset = Flight.objects.all()
+    queryset = Flight.objects.select_related(
+        "airplane", "route__source", "route__destination"
+    ).prefetch_related("crews")
 
     @staticmethod
     def _params_to_ints(qs):
@@ -76,14 +78,14 @@ class FlightViewSet(
 class RouteViewSet(
     mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet
 ):
-    queryset = Route.objects.all()
+    queryset = Route.objects.all().select_related("source", "destination")
     serializer_class = RouteSerializer
 
 
 class AirplaneViewSet(
     mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet
 ):
-    queryset = Airplane.objects.all()
+    queryset = Airplane.objects.select_related("airplane_type")
 
     def get_serializer_class(self):
         if self.action == "list":
@@ -103,7 +105,7 @@ class AirplaneTypeViewSet(
 class OrderViewSet(
     mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet
 ):
-    queryset = Order.objects.all()
+    queryset = Order.objects.prefetch_related("tickets")
     serializer_class = OrderSerializer
 
     def get_queryset(self):
