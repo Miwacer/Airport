@@ -1,4 +1,5 @@
-from .filters import filter_by_date
+from airport.filters import filter_by_date
+from airport.pagination import Pagination
 
 from django.db.models import Q
 
@@ -38,6 +39,7 @@ class FlightViewSet(
     queryset = Flight.objects.select_related(
         "airplane", "route__source", "route__destination"
     ).prefetch_related("crews")
+    pagination_class = Pagination
 
     @staticmethod
     def _params_to_ints(qs):
@@ -105,6 +107,7 @@ class OrderViewSet(
 ):
     queryset = Order.objects.prefetch_related("tickets")
     serializer_class = OrderSerializer
+    pagination_class = Pagination
 
     def get_queryset(self):
         return self.queryset.filter(user=self.request.user)
