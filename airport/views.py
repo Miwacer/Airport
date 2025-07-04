@@ -54,8 +54,8 @@ class FlightViewSet(
 
         if route:
             queryset = queryset.filter(
-                Q(route__source__name__icontains=route) |
-                Q(route__destination__name__icontains=route)
+                Q(route__source__name__icontains=route)
+                | Q(route__destination__name__icontains=route)
             )
 
         if departure_time:
@@ -65,7 +65,6 @@ class FlightViewSet(
             queryset = filter_by_date(queryset, arrival_time, "arrival_time")
 
         return queryset
-
 
     def get_serializer_class(self):
         if self.action == "list":
