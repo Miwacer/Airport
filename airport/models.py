@@ -1,6 +1,17 @@
+import os
+import uuid
+
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.template.defaultfilters import slugify
 from rest_framework.exceptions import ValidationError
+
+def airplane_image_path(instance: "Airplane", filename: str) -> str:
+   _, extension = os.path.splitext(filename)
+   return os.path.join(
+       "uploads/images/",
+       f"{slugify(instance.name)}-{uuid.uuid4()}{extension}"
+   )
 
 
 class Airport(models.Model):
@@ -15,6 +26,7 @@ class Airplane(models.Model):
     airplane_type = models.ForeignKey(
         "AirplaneType", on_delete=models.CASCADE, related_name="airplane"
     )
+    image = models.ImageField(null=True, upload_to=airplane_image_path)
 
     def total_seats(self):
         return self.rows * self.seats_in_row
