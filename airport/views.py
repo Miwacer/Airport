@@ -1,3 +1,5 @@
+from rest_framework.permissions import IsAuthenticated
+
 from airport.filters import filter_by_date
 from airport.pagination import Pagination
 
@@ -24,6 +26,7 @@ class AirportViewSet(
 ):
     queryset = Airport.objects.all()
     serializer_class = AirportSerializer
+    permission_classes = (IsAuthenticated,)
 
 
 class CrewViewSet(
@@ -31,6 +34,7 @@ class CrewViewSet(
 ):
     queryset = Crew.objects.all()
     serializer_class = CrewSerializer
+    permission_classes = (IsAuthenticated,)
 
 
 class FlightViewSet(
@@ -40,6 +44,7 @@ class FlightViewSet(
         "airplane", "route__source", "route__destination"
     ).prefetch_related("crews")
     pagination_class = Pagination
+    permission_classes = (IsAuthenticated,)
 
     @staticmethod
     def _params_to_ints(qs):
@@ -79,12 +84,14 @@ class RouteViewSet(
 ):
     queryset = Route.objects.all().select_related("source", "destination")
     serializer_class = RouteSerializer
+    permission_classes = (IsAuthenticated,)
 
 
 class AirplaneViewSet(
     mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet
 ):
     queryset = Airplane.objects.select_related("airplane_type")
+    permission_classes = (IsAuthenticated,)
 
     def get_serializer_class(self):
         if self.action == "list":
@@ -99,6 +106,7 @@ class AirplaneTypeViewSet(
 ):
     queryset = AirplaneType.objects.all()
     serializer_class = AirplaneTypeSerializer
+    permission_classes = (IsAuthenticated,)
 
 
 class OrderViewSet(
@@ -107,6 +115,7 @@ class OrderViewSet(
     queryset = Order.objects.prefetch_related("tickets")
     serializer_class = OrderSerializer
     pagination_class = Pagination
+    permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
         return self.queryset.filter(user=self.request.user)
