@@ -1,3 +1,4 @@
+from drf_spectacular.utils import OpenApiParameter, extend_schema
 from rest_framework.permissions import IsAuthenticated
 
 from airport.filters import filter_by_date
@@ -46,9 +47,6 @@ class FlightViewSet(
     pagination_class = Pagination
     permission_classes = (IsAuthenticated,)
 
-    @staticmethod
-    def _params_to_ints(qs):
-        return [int(str_id) for str_id in qs.split(",")]
 
     def get_queryset(self, departure_time=None):
         departure_time = self.request.query_params.get("departure_time")
@@ -78,6 +76,39 @@ class FlightViewSet(
         if self.action == "retrieve":
             return FlightDetailSerializer
 
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                "route",
+                type=str,
+                description=(
+                    "Filter by source or destination city"
+                    "(ex. ?route=Kiev)"
+                ),
+                required=False,
+            ),
+            OpenApiParameter(
+                "departure_time",
+                type=str,
+                description=(
+                    "Filter by departure time "
+                    "(ex. ?date=2022-10-23)"
+                ),
+                required=False,
+            ),
+            OpenApiParameter(
+                "arrival_time",
+                type=str,
+                description=(
+                    "Filter by arrival time "
+                    "(ex. ?date=2022-10-23)"
+                ),
+                required=False,
+            ),
+        ]
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
 
 class RouteViewSet(
     mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet
