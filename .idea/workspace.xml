@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14a5eec5-f72f-4208-ba0e-a973de1ee6b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entrypoint.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/management/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/management/commands/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/management/commands/wait_for_db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airport_service/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport_service/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrypoint.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/uploads/boeing_737.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/media/uploads/boeing_737.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/uploads/images/oceanic-cruiser-5d5eca4e-c884-494e-a369-6888dc4e6788.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/media/uploads/images/oceanic-cruiser-5d5eca4e-c884-494e-a369-6888dc4e6788.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +69,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\django\Airport\user" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python.Django tests">
     <configuration name="Test: airport.tests" type="DjangoTestsConfigurationType" temporary="true">
       <module name="Airport" />
@@ -199,7 +210,7 @@
       <workItem from="1751566408888" duration="37463000" />
       <workItem from="1751789339555" duration="11346000" />
       <workItem from="1751873950157" duration="30140000" />
-      <workItem from="1752266829426" duration="14534000" />
+      <workItem from="1752266829426" duration="20771000" />
     </task>
     <servers />
   </component>
