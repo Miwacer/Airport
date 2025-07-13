@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14a5eec5-f72f-4208-ba0e-a973de1ee6b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/airport/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/airport/tests/tests_flight_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entrypoint.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -198,7 +199,7 @@
       <workItem from="1751566408888" duration="37463000" />
       <workItem from="1751789339555" duration="11346000" />
       <workItem from="1751873950157" duration="30140000" />
-      <workItem from="1752266829426" duration="9156000" />
+      <workItem from="1752266829426" duration="14534000" />
     </task>
     <servers />
   </component>
